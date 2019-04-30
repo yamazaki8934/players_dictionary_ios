@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		7A65D62013D7E34C21A83F02 /* Pods_players_dictionary_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240CD8547A12D839265BEF48 /* Pods_players_dictionary_ios.framework */; };
 		8EF6237D227439F30049397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6237C227439F30049397A /* AppDelegate.swift */; };
-		8EF6237F227439F30049397A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6237E227439F30049397A /* ViewController.swift */; };
 		8EF62382227439F30049397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF62380227439F30049397A /* Main.storyboard */; };
 		8EF62384227439F60049397A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF62383227439F60049397A /* Assets.xcassets */; };
 		8EF62387227439F60049397A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF62385227439F60049397A /* LaunchScreen.storyboard */; };
+		8EF62391227442A10049397A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF62390227442A10049397A /* HomeViewController.swift */; };
+		8EF623932274443B0049397A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF623922274443B0049397A /* HomeTableViewCell.swift */; };
+		8EF62396227446B00049397A /* ic_forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF62395227446B00049397A /* ic_forward.png */; };
+		8EF6239A22744B3D0049397A /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6239922744B3D0049397A /* PlayersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +24,14 @@
 		8B29B4118BAC0CD4B9635F27 /* Pods-players_dictionary_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-players_dictionary_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-players_dictionary_ios/Pods-players_dictionary_ios.release.xcconfig"; sourceTree = "<group>"; };
 		8EF62379227439F30049397A /* players_dictionary_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = players_dictionary_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF6237C227439F30049397A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8EF6237E227439F30049397A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8EF62381227439F30049397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EF62383227439F60049397A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EF62386227439F60049397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EF62388227439F60049397A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EF62390227442A10049397A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8EF623922274443B0049397A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		8EF62395227446B00049397A /* ic_forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_forward.png; sourceTree = "<group>"; };
+		8EF6239922744B3D0049397A /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +76,41 @@
 		8EF6237B227439F30049397A /* players_dictionary_ios */ = {
 			isa = PBXGroup;
 			children = (
+				8EF623942274450F0049397A /* Image */,
+				8EF6238F2274428A0049397A /* ViewController */,
+				8EF6238E227442810049397A /* View */,
 				8EF6237C227439F30049397A /* AppDelegate.swift */,
-				8EF6237E227439F30049397A /* ViewController.swift */,
 				8EF62380227439F30049397A /* Main.storyboard */,
 				8EF62383227439F60049397A /* Assets.xcassets */,
 				8EF62385227439F60049397A /* LaunchScreen.storyboard */,
 				8EF62388227439F60049397A /* Info.plist */,
 			);
 			path = players_dictionary_ios;
+			sourceTree = "<group>";
+		};
+		8EF6238E227442810049397A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EF623922274443B0049397A /* HomeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8EF6238F2274428A0049397A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8EF62390227442A10049397A /* HomeViewController.swift */,
+				8EF6239922744B3D0049397A /* PlayersViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8EF623942274450F0049397A /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				8EF62395227446B00049397A /* ic_forward.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		B35C8E43030F4A12A969DA7D /* Frameworks */ = {
@@ -149,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EF62387227439F60049397A /* LaunchScreen.storyboard in Resources */,
+				8EF62396227446B00049397A /* ic_forward.png in Resources */,
 				8EF62384227439F60049397A /* Assets.xcassets in Resources */,
 				8EF62382227439F30049397A /* Main.storyboard in Resources */,
 			);
@@ -208,8 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EF6237F227439F30049397A /* ViewController.swift in Sources */,
+				8EF623932274443B0049397A /* HomeTableViewCell.swift in Sources */,
+				8EF6239A22744B3D0049397A /* PlayersViewController.swift in Sources */,
 				8EF6237D227439F30049397A /* AppDelegate.swift in Sources */,
+				8EF62391227442A10049397A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
