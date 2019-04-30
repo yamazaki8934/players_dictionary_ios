@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7A65D62013D7E34C21A83F02 /* Pods_players_dictionary_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240CD8547A12D839265BEF48 /* Pods_players_dictionary_ios.framework */; };
+		8EC77951227803A3005DFCAE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC77950227803A3005DFCAE /* Player.swift */; };
+		8EC77953227825E5005DFCAE /* PlayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC77952227825E5005DFCAE /* PlayersTableViewCell.swift */; };
+		8EC7795522782966005DFCAE /* GetPlayersOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7795422782966005DFCAE /* GetPlayersOperation.swift */; };
+		8EC779572278374E005DFCAE /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC779562278374E005DFCAE /* Team.swift */; };
 		8EF6237D227439F30049397A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6237C227439F30049397A /* AppDelegate.swift */; };
 		8EF62382227439F30049397A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EF62380227439F30049397A /* Main.storyboard */; };
 		8EF62384227439F60049397A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EF62383227439F60049397A /* Assets.xcassets */; };
@@ -22,6 +26,10 @@
 		1229AF991DD273159E02B3C3 /* Pods-players_dictionary_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-players_dictionary_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-players_dictionary_ios/Pods-players_dictionary_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		240CD8547A12D839265BEF48 /* Pods_players_dictionary_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_players_dictionary_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B29B4118BAC0CD4B9635F27 /* Pods-players_dictionary_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-players_dictionary_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-players_dictionary_ios/Pods-players_dictionary_ios.release.xcconfig"; sourceTree = "<group>"; };
+		8EC77950227803A3005DFCAE /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		8EC77952227825E5005DFCAE /* PlayersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableViewCell.swift; sourceTree = "<group>"; };
+		8EC7795422782966005DFCAE /* GetPlayersOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlayersOperation.swift; sourceTree = "<group>"; };
+		8EC779562278374E005DFCAE /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		8EF62379227439F30049397A /* players_dictionary_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = players_dictionary_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EF6237C227439F30049397A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EF62381227439F30049397A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +63,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8EC7794D2278032C005DFCAE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8EC77950227803A3005DFCAE /* Player.swift */,
+				8EC7795422782966005DFCAE /* GetPlayersOperation.swift */,
+				8EC779562278374E005DFCAE /* Team.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		8EF62370227439F30049397A = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +94,7 @@
 		8EF6237B227439F30049397A /* players_dictionary_ios */ = {
 			isa = PBXGroup;
 			children = (
+				8EC7794D2278032C005DFCAE /* Common */,
 				8EF623942274450F0049397A /* Image */,
 				8EF6238F2274428A0049397A /* ViewController */,
 				8EF6238E227442810049397A /* View */,
@@ -92,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				8EF623922274443B0049397A /* HomeTableViewCell.swift */,
+				8EC77952227825E5005DFCAE /* PlayersTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,8 +264,12 @@
 			files = (
 				8EF623932274443B0049397A /* HomeTableViewCell.swift in Sources */,
 				8EF6239A22744B3D0049397A /* PlayersViewController.swift in Sources */,
+				8EC77953227825E5005DFCAE /* PlayersTableViewCell.swift in Sources */,
 				8EF6237D227439F30049397A /* AppDelegate.swift in Sources */,
+				8EC779572278374E005DFCAE /* Team.swift in Sources */,
+				8EC77951227803A3005DFCAE /* Player.swift in Sources */,
 				8EF62391227442A10049397A /* HomeViewController.swift in Sources */,
+				8EC7795522782966005DFCAE /* GetPlayersOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

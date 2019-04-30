@@ -10,8 +10,13 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    private enum RowType: CaseIterable {
-        case giants, swallows, baystars, dragons, tigers, carp
+    fileprivate enum RowType: CaseIterable {
+        case giants,
+             swallows,
+             baystars,
+             dragons,
+             tigers,
+             carp
     }
     
     private var tableView: UITableView!
@@ -51,9 +56,38 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = PlayersViewController()
-        let navi = UINavigationController(rootViewController: controller)
-        present(navi, animated: true, completion: nil)
+        switch RowType.allCases[indexPath.row] {
+        case .giants:
+            let controller = PlayersViewController()
+            controller.controllerTag = 0
+            let navi = UINavigationController(rootViewController: controller)
+            present(navi, animated: true, completion: nil)
+        case .swallows:
+            let controller = PlayersViewController()
+            controller.controllerTag = 1
+            let navi = UINavigationController(rootViewController: controller)
+            present(navi, animated: true, completion: nil)
+        case .baystars:
+            let controller = PlayersViewController()
+            controller.controllerTag = 2
+            let navi = UINavigationController(rootViewController: controller)
+            present(navi, animated: true, completion: nil)
+        case .dragons:
+            let controller = PlayersViewController()
+            controller.controllerTag = 3
+            let navi = UINavigationController(rootViewController: controller)
+            present(navi, animated: true, completion: nil)
+        case .tigers:
+            let controller = PlayersViewController()
+            controller.controllerTag = 4
+            let navi = UINavigationController(rootViewController: controller)
+            present(navi, animated: true, completion: nil)
+        case .carp:
+            let controller = PlayersViewController()
+            controller.controllerTag = 5
+            let navi = UINavigationController(rootViewController: controller)
+            present(navi, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
