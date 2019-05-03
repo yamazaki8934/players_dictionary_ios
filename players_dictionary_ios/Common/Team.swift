@@ -35,7 +35,7 @@ struct Team {
     
     static func fetchSwallows(completion: @escaping ([Player]) -> Swift.Void) {
         
-        let url = "http://localhost:3000/api/v1/swallows/players"
+        let url = "https://2d31bd75.ngrok.io/api/v1/swallows/players"
         
         guard var urlComponents = URLComponents(string: url) else {
             return
@@ -59,7 +59,7 @@ struct Team {
     
     static func fetchBaystars(completion: @escaping ([Player]) -> Swift.Void) {
         
-        let url = "http://localhost:3000/api/v1/baystars/players"
+        let url = "https://2d31bd75.ngrok.io/api/v1/baystars/players"
         
         guard var urlComponents = URLComponents(string: url) else {
             return
@@ -83,7 +83,7 @@ struct Team {
     
     static func fetchDragons(completion: @escaping ([Player]) -> Swift.Void) {
         
-        let url = "http://localhost:3000/api/v1/dragons/players"
+        let url = "https://2d31bd75.ngrok.io/api/v1/dragons/players"
         
         guard var urlComponents = URLComponents(string: url) else {
             return
@@ -107,7 +107,7 @@ struct Team {
     
     static func fetchTigers(completion: @escaping ([Player]) -> Swift.Void) {
         
-        let url = "http://localhost:3000/api/v1/tigers/players"
+        let url = "https://2d31bd75.ngrok.io/api/v1/tigers/players"
         
         guard var urlComponents = URLComponents(string: url) else {
             return
@@ -131,7 +131,7 @@ struct Team {
     
     static func fetchCarp(completion: @escaping ([Player]) -> Swift.Void) {
         
-        let url = "http://localhost:3000/api/v1/carp/players"
+        let url = "https://2d31bd75.ngrok.io/api/v1/carp/players"
         
         guard var urlComponents = URLComponents(string: url) else {
             return

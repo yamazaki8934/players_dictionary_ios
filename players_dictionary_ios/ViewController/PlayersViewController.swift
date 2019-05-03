@@ -24,6 +24,7 @@ class PlayersViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.register(PlayersTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(PlayersTableViewCell.self))
+        tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
     }
@@ -38,15 +39,21 @@ class PlayersViewController: UIViewController {
     }
 }
 
-extension PlayersViewController: UITableViewDataSource {
+extension PlayersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return players.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return PlayersTableViewCell.cellHeight()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(PlayersTableViewCell.self), for: indexPath) as! PlayersTableViewCell
         let player = players[indexPath.row]
         cell.leftTitle.text = player.name
+        print(player)
+        print(player.name)
         return cell
     }
 }
