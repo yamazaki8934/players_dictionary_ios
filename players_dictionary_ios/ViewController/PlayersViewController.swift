@@ -26,8 +26,6 @@ class PlayersViewController: UIViewController {
         tableView.register(PlayersTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(PlayersTableViewCell.self))
         tableView.dataSource = self
         view.addSubview(tableView)
-        
-        reloadTableView()
     }
     
     override func viewWillLayoutSubviews() {
@@ -37,56 +35,6 @@ class PlayersViewController: UIViewController {
                                  y: 0,
                                  width: UIScreen.main.bounds.width,
                                  height: UIScreen.main.bounds.height)
-    }
-    
-    func reloadTableView() {
-        var  controllerTag = 0 {
-            didSet {
-                if controllerTag == 0 {
-                    Team.fetchGiants(completion: { (players) in
-                        self.players = players
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    })
-                } else if controllerTag == 1 {
-                    Team.fetchSwallows(completion: { (players) in
-                        self.players = players
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    })
-                } else if controllerTag == 2 {
-                    Team.fetchBaystars(completion: { (players) in
-                        self.players = players
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    })
-                } else if controllerTag == 3 {
-                    Team.fetchDragons(completion: { (players) in
-                        self.players = players
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    })
-                } else if controllerTag == 4 {
-                    Team.fetchTigers(completion: { (players) in
-                        self.players = players
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    })
-                } else {
-                    Team.fetchCarp(completion: { (players) in
-                        self.players = players
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    })
-                }
-            }
-        }
     }
 }
 
@@ -100,5 +48,53 @@ extension PlayersViewController: UITableViewDataSource {
         let player = players[indexPath.row]
         cell.leftTitle.text = player.name
         return cell
+    }
+}
+
+extension PlayersViewController: HomeViewControllerDelegate {
+    func selectedTeam(_ teamNumber: Int) {
+        if teamNumber == 0 {
+            Team.fetchGiants(completion: { (players) in
+                self.players = players
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        } else if teamNumber == 1 {
+            Team.fetchSwallows(completion: { (players) in
+                self.players = players
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        } else if teamNumber == 2 {
+            Team.fetchBaystars(completion: { (players) in
+                self.players = players
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        } else if teamNumber == 3 {
+            Team.fetchDragons(completion: { (players) in
+                self.players = players
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        } else if teamNumber == 4 {
+            Team.fetchTigers(completion: { (players) in
+                self.players = players
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        } else {
+            Team.fetchCarp(completion: { (players) in
+                self.players = players
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
 }
