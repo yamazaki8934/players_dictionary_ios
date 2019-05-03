@@ -8,18 +8,24 @@
 
 import UIKit
 
+protocol HomeViewControllerDelegate: AnyObject {
+    func selectedTeam(_ teamNumber: Int)
+}
+
 class HomeViewController: UIViewController {
 
-    fileprivate enum RowType: CaseIterable {
-        case giants,
-             swallows,
-             baystars,
-             dragons,
-             tigers,
-             carp
+    fileprivate enum RowType: String, CaseIterable {
+        case giants = "巨人"
+        case swallows = "ヤクルト"
+        case baystars = "DeNA"
+        case dragons = "中日"
+        case tigers = "阪神"
+        case carp = "広島"
     }
     
     private var tableView: UITableView!
+    
+    weak var delegate: HomeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,53 +65,34 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch RowType.allCases[indexPath.row] {
         case .giants:
             let controller = PlayersViewController()
-            controller.controllerTag = 0
-            let navi = UINavigationController(rootViewController: controller)
-            present(navi, animated: true, completion: nil)
+            self.delegate?.selectedTeam(0)
+            self.navigationController?.pushViewController(controller, animated: true)
         case .swallows:
             let controller = PlayersViewController()
-            controller.controllerTag = 1
-            let navi = UINavigationController(rootViewController: controller)
-            present(navi, animated: true, completion: nil)
+            self.delegate?.selectedTeam(1)
+            self.navigationController?.pushViewController(controller, animated: true)
         case .baystars:
             let controller = PlayersViewController()
-            controller.controllerTag = 2
-            let navi = UINavigationController(rootViewController: controller)
-            present(navi, animated: true, completion: nil)
+            self.delegate?.selectedTeam(2)
+            self.navigationController?.pushViewController(controller, animated: true)
         case .dragons:
             let controller = PlayersViewController()
-            controller.controllerTag = 3
-            let navi = UINavigationController(rootViewController: controller)
-            present(navi, animated: true, completion: nil)
+            self.delegate?.selectedTeam(3)
+            self.navigationController?.pushViewController(controller, animated: true)
         case .tigers:
             let controller = PlayersViewController()
-            controller.controllerTag = 4
-            let navi = UINavigationController(rootViewController: controller)
-            present(navi, animated: true, completion: nil)
+            self.delegate?.selectedTeam(4)
+            self.navigationController?.pushViewController(controller, animated: true)
         case .carp:
             let controller = PlayersViewController()
-            controller.controllerTag = 5
-            let navi = UINavigationController(rootViewController: controller)
-            present(navi, animated: true, completion: nil)
+            self.delegate?.selectedTeam(5)
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(HomeTableViewCell.self), for: indexPath) as! HomeTableViewCell
-        switch RowType.allCases[indexPath.row] {
-        case .giants:
-            cell.leftTitle.text = "巨人"
-        case .swallows:
-            cell.leftTitle.text = "ヤクルト"
-        case .baystars:
-            cell.leftTitle.text = "DeNA"
-        case .dragons:
-            cell.leftTitle.text = "中日"
-        case .tigers:
-            cell.leftTitle.text = "阪神"
-        case .carp:
-            cell.leftTitle.text = "広島"
-        }
+        cell.leftTitle.text = RowType.allCases[indexPath.row].rawValue
         return cell
     }
 }

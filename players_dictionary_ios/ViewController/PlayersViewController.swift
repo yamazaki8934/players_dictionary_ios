@@ -9,7 +9,7 @@
 import UIKit
 
 class PlayersViewController: UIViewController {
-    private var tableView: UITableView!
+    private var tableView = UITableView()
     
     fileprivate var players: [Player] = []
     
@@ -21,12 +21,13 @@ class PlayersViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.title = "選手一覧"
         
-        tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.register(PlayersTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(PlayersTableViewCell.self))
         tableView.dataSource = self
         view.addSubview(tableView)
+        
+        reloadTableView()
     }
     
     override func viewWillLayoutSubviews() {
@@ -38,54 +39,55 @@ class PlayersViewController: UIViewController {
                                  height: UIScreen.main.bounds.height)
     }
     
-    var  controllerTag = 0 {
-        didSet {
-            if controllerTag == 0 {
-                Team.fetchGiants(completion: { (players) in
-                    self.players = players
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            } else if controllerTag == 1 {
-                Team.fetchSwallows(completion: { (players) in
-                    self.players = players
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            } else if controllerTag == 2 {
-                Team.fetchBaystars(completion: { (players) in
-                    self.players = players
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            } else if controllerTag == 3 {
-                Team.fetchDragons(completion: { (players) in
-                    self.players = players
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            } else if controllerTag == 4 {
-                Team.fetchTigers(completion: { (players) in
-                    self.players = players
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            } else {
-                Team.fetchCarp(completion: { (players) in
-                    self.players = players
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
+    func reloadTableView() {
+        var  controllerTag = 0 {
+            didSet {
+                if controllerTag == 0 {
+                    Team.fetchGiants(completion: { (players) in
+                        self.players = players
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    })
+                } else if controllerTag == 1 {
+                    Team.fetchSwallows(completion: { (players) in
+                        self.players = players
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    })
+                } else if controllerTag == 2 {
+                    Team.fetchBaystars(completion: { (players) in
+                        self.players = players
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    })
+                } else if controllerTag == 3 {
+                    Team.fetchDragons(completion: { (players) in
+                        self.players = players
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    })
+                } else if controllerTag == 4 {
+                    Team.fetchTigers(completion: { (players) in
+                        self.players = players
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    })
+                } else {
+                    Team.fetchCarp(completion: { (players) in
+                        self.players = players
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    })
+                }
             }
         }
     }
-
 }
 
 extension PlayersViewController: UITableViewDataSource {

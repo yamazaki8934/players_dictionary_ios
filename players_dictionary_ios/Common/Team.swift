@@ -10,8 +10,8 @@ import UIKit
 
 struct Team {
     static func fetchGiants(completion: @escaping ([Player]) -> Swift.Void) {
-        
-        let url = "http://localhost:3000/api/v1/giants/players"
+        // using ngrok
+        let url = "https://2d31bd75.ngrok.io/api/v1/giants/players"
         
         guard var urlComponents = URLComponents(string: url) else {
             return
